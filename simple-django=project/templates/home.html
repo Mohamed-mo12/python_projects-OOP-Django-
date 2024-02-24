@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <meta charset="UTF-8">
+    <title> Boards  </title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <p style="color: red"> welcome mr : {{ user.username }}  </p>
+    </div>
+</nav>
+<div class="container">
+<ul class="breadcrump my-4">
+    <li class="breadcrump-item active"> Boards  </li>
+</ul>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th> Board </th>
+        <th>  Post</th>
+        <th>  Topic  </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for b in boards %}
+    <tr>
+        <td>
+            <a href="{% url 'board_topic' b.pk %}"> {{ b.name }} </a>
+            <br> <small>{{ b.description }}</small>
+        </td>
+    <td> 0 </td>
+    <td> 0 </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+</body>
+</html>
